@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
+    <link rel="stylesheet" href="/css/shared.css">
     <style>
         * {
             margin: 0;
@@ -24,47 +25,8 @@
             background: #fafafa;
         }
 
-        .site-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 24px 50px;
-            background: white;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #E2E8F0;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1.6rem;
-            color: #2D3748;
-            letter-spacing: -0.5px;
-        }
-
-        nav {
-            display: flex;
-        }
-
-        nav a {
-            margin-left: 28px;
-            text-decoration: none;
-            color: #1A202C;
-            font-size: 15px;
-            font-weight: 500;
-            letter-spacing: 0.2px;
-            transition: color 0.2s ease;
-        }
-
-        nav a:hover {
-            color: #4A5568;
-        }
-
-        .container {
-            max-width: 720px;
+        .page-container {
+            max-width: 900px;
             margin: 0 auto;
             padding: 3rem 2rem;
         }
@@ -169,37 +131,8 @@
             border-color: #d5d5d5;
         }
 
-        .site-footer {
-            background: white;
-            padding: 2rem 0;
-            margin-top: 3rem;
-            border-top: 1px solid #e5e5e5;
-        }
-
-        .site-footer .container {
-            text-align: center;
-        }
-
-        .site-footer p {
-            color: #999;
-            font-size: 0.875rem;
-        }
-
         @media (max-width: 768px) {
-            .site-header {
-                padding: 20px 30px;
-            }
-
-            .logo {
-                font-size: 1.3rem;
-            }
-
-            nav a {
-                margin-left: 20px;
-                font-size: 14px;
-            }
-
-            .container {
+            .page-container {
                 padding: 2rem 1.25rem;
             }
 
@@ -224,14 +157,14 @@
 <body>
 
 <header class="site-header">
-    <div class="logo">ToolNest</div>
+    <a href="/" class="logo">ToolNest</a>
     <nav>
         <a href="/">Home</a>
         <a href="/about-toolnest/">About</a>
     </nav>
 </header>
 
-<main class="container">
+<main class="page-container">
     <article class="blog-article">
         <h1>About ToolNest</h1>
 
@@ -246,7 +179,7 @@
         <p>
             Many student websites are overloaded with ads, require sign-ups,
             or feel confusing to use.
-            ToolNest was built to be different — clean, lightweight,
+            ToolNest was built to be different, clean, lightweight,
             and focused only on what students actually need.
         </p>
 
@@ -266,12 +199,12 @@
         </p>
         <ul>
             <li>
-                <strong>Essay Word Counter</strong> –
+                <strong>Essay Word Counter</strong> —
                 Check word count, characters, sentences, reading time, and pages
                 for essays and assignments.
             </li>
             <li>
-                <strong>Study Tools (Coming Soon)</strong> –
+                <strong>Study Tools (Coming Soon)</strong> —
                 Pomodoro timers, GPA calculators, citation tools, and more.
             </li>
         </ul>
@@ -305,10 +238,40 @@
 </main>
 
 <footer class="site-footer">
-    <div class="container">
-        <p>&copy; 2026 ToolNest. All rights reserved.</p>
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="/" class="logo">ToolNest</a>
+                <p>Free online tools for students and professionals.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Tools</h4>
+                    <a href="/word-counter/">Word Counter</a>
+                    <a href="#">More coming soon...</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <a href="/about-toolnest/">About</a>
+                    <a href="/contact.html">Contact</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 ToolNest. All rights reserved.</p>
+        </div>
     </div>
 </footer>
+
 
 </body>
 </html>
