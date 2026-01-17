@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Word Counter for Students (School, College, University)</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+
+    <!-- SEO -->
+    <meta name="description" content="Free essay word counter for students. Check word count, characters, sentences, reading time, and recommended essay length.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="canonical" href="https://toolnest.site/">
+
+        <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Merriweather:wght@400;700&family=Inter:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Essay Word Counter for Students",
+      "url": "https://toolnest.site/",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "description": "Free essay word counter for students to check words, characters, sentences, reading time, and page length.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many words should a college essay be?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most college essays are between 500 and 800 words unless your teacher specifies a different limit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does word count affect marks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Essays that are too short or too long can lose marks, so staying close to the recommended word limit is important."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this essay word counter free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, this essay word counter is completely free for students to use online."
+          }
+        }
+      ]
+    }
+    </script>
+
+
+</head>
+
+<body>
+
+<header class="site-header">
+    <a href="/" class="logo">ToolNest</a>
+    <nav>
+        <a href="/about-toolnest/">About</a>
+        <a href="/contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <h1>Word Counter for Students</h1>
+    <p class="intro">
+        Paste your essay below to instantly check word count, character count,
+        sentence count, reading time, and page length.
+    </p>
+
+    <!-- Education Level Indicator -->
+    <div id="educationLevel" class="education-level-indicator"></div>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="stat">
+            <div class="label">WORDS</div>
+            <div class="value" id="wordCount">0</div>
+        </div>
+
+        <div class="stat stat-char">
+            <div class="label" id="charLabel">CHARACTERS (WITH SPACES)</div>
+            <div class="value" id="charCount">0</div>
+            <button class="char-toggle" id="charToggle" onclick="toggleCharCount()">Without spaces</button>
+        </div>
+
+        <div class="stat">
+            <div class="label">READING TIME</div>
+            <div class="value" id="readingTime">0</div>
+        </div>
+
+        <div class="stat">
+            <div class="label">SENTENCES</div>
+            <div class="value" id="sentenceCount">0</div>
+        </div>
+
+        <div class="stat">
+            <div class="label">PAGES</div>
+            <div class="value" id="pageCount">0</div>
+        </div>
+    </div>
+
+    <!-- Auto-save indicator -->
+    <div id="autoSaveIndicator" class="auto-save-indicator">Draft saved locally</div>
+
+    <hr class="editor-divider">
+
+    <!-- EDITOR + KEYWORDS -->
+    <div class="editor-wrapper">
+
+        <!-- LEFT: ESSAY -->
+        <div class="essay-panel">
+            <textarea
+                id="essayInput"
+                placeholder="Paste or start typing your essay/text here..."
+                oninput="analyzeEssay(); autoSave();"></textarea>
+        </div>
+
+        <!-- RIGHT: KEYWORDS -->
+        <div class="keyword-panel">
+            <h3>Top Keywords</h3>
+            <p>Keywords appear automatically as you type.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Word</th>
+                        <th>Count</th>
+                        <th>%</th>
+                    </tr>
+                </thead>
+                <tbody id="keywordTable"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- Type Selector -->
+    <div class="essay-type-selector">
+        <label for="essayType">Type:</label>
+        <select id="essayType" onchange="updateEssayTypeTips()">
+            <option value="">Select type...</option>
+            <option value="narrative">Narrative</option>
+            <option value="argumentative">Argumentative</option>
+            <option value="descriptive">Descriptive</option>
+            <option value="expository">Expository</option>
+        </select>
+        <div id="essayTypeTips" class="essay-tips"></div>
+    </div>
+
+</div>
+
+<script src="/js/tools.js"></script>
+</body>
+</html>

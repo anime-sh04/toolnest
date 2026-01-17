@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About ToolNest | Free Online Tools for Students</title>
+    <meta name="description" content="Learn about ToolNest, a free website offering simple and fast online tools for students to improve writing, productivity, and academic performance.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://toolnest.site/about-toolnest/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 50px;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #E2E8F0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: #2D3748;
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            margin-left: 28px;
+            text-decoration: none;
+            color: #1A202C;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #4A5568;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .blog-article {
+            background: white;
+            border-radius: 8px;
+            padding: 3rem 2.5rem;
+            border: 1px solid #e5e5e5;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 2.5rem 0 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .intro {
+            font-size: 1.0625rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 3px solid #1a1a1a;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #555;
+            font-size: 0.9375rem;
+            line-height: 1.7;
+        }
+
+        ul {
+            margin: 1rem 0 1.5rem 1.5rem;
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 0.625rem;
+            color: #555;
+            font-size: 0.9375rem;
+            position: relative;
+            padding-left: 1.25rem;
+        }
+
+        li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        a {
+            color: #1a1a1a;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 2px;
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature-box {
+            padding: 1rem;
+            background: #f9f9f9;
+            border: 1px solid #e5e5e5;
+            border-radius: 6px;
+            font-size: 0.9375rem;
+            color: #555;
+            transition: all 0.2s ease;
+        }
+
+        .feature-box:hover {
+            background: white;
+            border-color: #d5d5d5;
+        }
+
+        .site-footer {
+            background: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .site-footer .container {
+            text-align: center;
+        }
+
+        .site-footer p {
+            color: #999;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .site-header {
+                padding: 20px 30px;
+            }
+
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            nav a {
+                margin-left: 20px;
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 2rem 1.25rem;
+            }
+
+            .blog-article {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.875rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="logo">ToolNest</div>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about-toolnest/">About</a>
+    </nav>
+</header>
+
+<main class="container">
+    <article class="blog-article">
+        <h1>About ToolNest</h1>
+
+        <p class="intro">
+            ToolNest is a free online platform created to help students
+            complete assignments more efficiently.
+            Our goal is to provide simple, fast, and reliable tools
+            that solve everyday academic problems without distractions.
+        </p>
+
+        <h2>Why ToolNest Was Created</h2>
+        <p>
+            Many student websites are overloaded with ads, require sign-ups,
+            or feel confusing to use.
+            ToolNest was built to be different — clean, lightweight,
+            and focused only on what students actually need.
+        </p>
+
+        <h2>Who ToolNest Is For</h2>
+        <p>ToolNest is designed for:</p>
+        <ul>
+            <li>School students working on assignments</li>
+            <li>College students writing essays and reports</li>
+            <li>University students managing long academic papers</li>
+            <li>Anyone who wants fast, no-login study tools</li>
+        </ul>
+
+        <h2>What Tools You'll Find on ToolNest</h2>
+        <p>
+            ToolNest offers a growing collection of academic and productivity tools,
+            all accessible directly in your browser.
+        </p>
+        <ul>
+            <li>
+                <strong>Essay Word Counter</strong> –
+                Check word count, characters, sentences, reading time, and pages
+                for essays and assignments.
+            </li>
+            <li>
+                <strong>Study Tools (Coming Soon)</strong> –
+                Pomodoro timers, GPA calculators, citation tools, and more.
+            </li>
+        </ul>
+        <p>
+            👉 Try our most popular tool here:
+            <a href="/word-counter/"><strong>Essay/Text Word Counter for Students</strong></a>
+        </p>
+
+        <h2>What Makes ToolNest Different</h2>
+        <div class="feature-grid">
+            <div class="feature-box">⚡ Fast and lightweight — no heavy frameworks</div>
+            <div class="feature-box">🔒 No sign-up, no tracking, no stored data</div>
+            <div class="feature-box">🎓 Built specifically for students</div>
+            <div class="feature-box">📱 Works on all devices</div>
+        </div>
+
+        <h2>Our Vision</h2>
+        <p>
+            ToolNest aims to become a trusted place for students
+            to access practical tools that support learning and productivity.
+            We focus on clarity, simplicity, and usefulness over unnecessary features.
+        </p>
+
+        <h2>Final Note</h2>
+        <p>
+            If you are a student looking for clean, free, and effective tools,
+            ToolNest is built for you.
+            New tools and resources will continue to be added over time.
+        </p>
+    </article>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2026 ToolNest. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
