@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us | ToolNest</title>
+    <meta name="description" content="Get in touch with ToolNest. Send us your feedback, questions, or suggestions about our free online tools for students.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://toolnest.site/contact.html">
+    
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/shared.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fafafa;
+        }
+
+        .page-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 2rem;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 8px;
+            padding: 50px 40px;
+            border: 1px solid #e5e5e5;
+            text-align: center;
+        }
+
+        .email-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+        }
+
+        .contact-card h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .contact-card p {
+            font-size: 1rem;
+            color: #718096;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .email-link {
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #4A5568;
+            text-decoration: none;
+            padding: 16px 32px;
+            background: #F7FAFC;
+            border: 2px solid #4A5568;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .email-link:hover {
+            background: #4A5568;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 85, 104, 0.2);
+        }
+
+        .contact-info {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .contact-info h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: start;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding: 16px;
+            background: #f9f9f9;
+            border-radius: 6px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .info-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .info-content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .info-content p {
+            font-size: 14px;
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        .info-content a {
+            color: #4A5568;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .info-content a:hover {
+            color: #2D3748;
+            text-decoration: underline;
+        }
+
+
+        @media (max-width: 768px) {
+            .page-container {
+                margin: 20px auto;
+                padding: 0 1.25rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .contact-card,
+            .contact-info {
+                padding: 32px 24px;
+            }
+
+            .email-link {
+                font-size: 1.25rem;
+                padding: 14px 24px;
+            }
+
+            .contact-header {
+                margin-bottom: 30px;
+            }
+
+            .contact-content {
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .contact-card,
+            .contact-info {
+                padding: 24px 20px;
+            }
+
+            .email-icon {
+                font-size: 48px;
+            }
+
+            .email-link {
+                font-size: 1.1rem;
+                padding: 12px 20px;
+                word-break: break-all;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <a href="/" class="logo">ToolNest</a>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about-toolnest/">About</a>
+    </nav>
+</header>
+
+<main class="page-container">
+    <div class="contact-header">
+        <h1>Contact Us</h1>
+        <p class="subtitle">
+            Have a question, suggestion, or feedback? We'd love to hear from you!
+        </p>
+    </div>
+
+    <div class="contact-content">
+        
+        <!-- Email Contact -->
+        <section class="contact-card">
+            <div class="email-icon">📧</div>
+            <h2>Get in Touch</h2>
+            <p>
+                Have a question, suggestion, or feedback?<br>
+                Send us an email and we'll get back to you soon.
+            </p>
+            <a href="mailto:contact@toolnest.site" class="email-link">justfordc00@gmail.com</a>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="contact-info">
+            <h2>What You Can Email Us About</h2>
+
+            <div class="info-item">
+                <div class="info-icon">💬</div>
+                <div class="info-content">
+                    <h3>General Feedback</h3>
+                    <p>Share your thoughts about our tools and how we can improve them.</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">🛠️</div>
+                <div class="info-content">
+                    <h3>Feature Requests</h3>
+                    <p>Have an idea for a new tool? We're always looking to add features that help students.</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">🐛</div>
+                <div class="info-content">
+                    <h3>Report a Bug</h3>
+                    <p>Found something not working? Let us know with details about what happened.</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">❓</div>
+                <div class="info-content">
+                    <h3>Questions</h3>
+                    <p>Have questions about how to use our tools? We're here to help!</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">⏱️</div>
+                <div class="info-content">
+                    <h3>Response Time</h3>
+                    <p>We typically respond within 24-48 hours on business days.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="/" class="logo">ToolNest</a>
+                <p>Free online tools for students and professionals.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Tools</h4>
+                    <a href="/word-counter/">Word Counter</a>
+                    <a href="#">More coming soon...</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <a href="/about-toolnest/">About</a>
+                    <a href="/contact-toolnest/">Contact</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 ToolNest. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>
