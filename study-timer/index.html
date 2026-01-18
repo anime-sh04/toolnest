@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Timer - Pomodoro & Custom Focus Sessions for Students</title>
+    <meta name="description" content="Free web-based study timer for students. Classic Pomodoro (25/5), custom sessions (50/10, 45/15), exam prep mode. No downloads, instant access, works offline.">
+    
+    <!-- Structured Data - WebApplication Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Study Timer for Students",
+      "url": "https://toolnest.site/study-timer/",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any",
+      "description": "Free web-based study timer for students. Classic Pomodoro technique, custom focus sessions, and exam prep modes to boost productivity.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Classic Pomodoro timer (25/5)",
+        "Deep Work mode (50/10)",
+        "Study Session (45/15)",
+        "Exam Prep (90/20)",
+        "Quick Sprint (15/3)",
+        "Custom timer settings",
+        "Session statistics tracking",
+        "Auto-start breaks",
+        "Sound and browser notifications",
+        "Session history"
+      ],
+      "browserRequirements": "Requires JavaScript",
+      "author": {
+        "@type": "Organization",
+        "name": "ToolNest",
+        "url": "https://toolnest.site"
+      }
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://toolnest.site/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Study Timer",
+          "item": "https://toolnest.site/study-timer/"
+        }
+      ]
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #e9ecef;
+            --text-primary: #1a1a1a;
+            --text-secondary: #495057;
+            --text-muted: #868e96;
+            --accent-study: #28a745;
+            --accent-break: #dc3545;
+            --border: #dee2e6;
+            --shadow: rgba(40, 167, 69, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(40, 167, 69, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(220, 53, 69, 0.05) 0%, transparent 50%);
+            animation: gradientMove 20s ease infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(10%, 10%); }
+        }
+
+        /* Header Styles */
+        .site-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 50px;
+            background: var(--bg-secondary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .logo:hover {
+            color: var(--accent-study);
+        }
+
+        .site-header nav {
+            display: flex;
+        }
+
+        .site-header nav a {
+            font-family: 'Inter', sans-serif;
+            margin-left: 28px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+            transition: color 0.2s ease;
+        }
+
+        .site-header nav a:hover {
+            color: var(--accent-study);
+        }
+
+        /* Breadcrumb Styles */
+        .breadcrumb {
+            margin-bottom: 30px;
+        }
+
+        .breadcrumb ol {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb li:not(:last-child)::after {
+            content: '›';
+            margin: 0 10px;
+            color: var(--text-muted);
+        }
+
+        .breadcrumb a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--accent-study);
+        }
+
+        .breadcrumb li:last-child span {
+            color: var(--text-muted);
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        /* Timer and Quick Actions Grid */
+        .timer-quick-grid {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Secondary Panels Grid */
+        .secondary-panels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        /* Timer Section */
+        .timer-section {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+            height: fit-content;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .timer-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-study) 0%, var(--accent-break) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .timer-section.active::before {
+            opacity: 1;
+        }
+
+        .session-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .session-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-study);
+            animation: pulse 2s ease infinite;
+        }
+
+        .session-label.break .session-indicator {
+            background: var(--accent-break);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .timer-display {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(80px, 12vw, 140px);
+            font-weight: 700;
+            letter-spacing: -4px;
+            margin: 40px 0;
+            text-align: center;
+            color: var(--text-primary);
+            position: relative;
+            text-shadow: 0 0 40px var(--shadow);
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            height: 6px;
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--accent-study);
+            width: 0%;
+            transition: width 0.3s linear;
+            border-radius: 10px;
+            box-shadow: 0 0 20px var(--accent-study);
+        }
+
+        .progress-bar.break {
+            background: var(--accent-break);
+            box-shadow: 0 0 20px var(--accent-break);
+        }
+
+        /* Controls */
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        button {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 18px 32px;
+            border: 2px solid var(--border);
+            background: transparent;
+            color: var(--text-primary);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--accent-study);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.8s ease, height 0.8s ease;
+            z-index: 0;
+        }
+
+        button:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+
+        button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        button:hover {
+            border-color: var(--accent-study);
+            color: white;
+            background: var(--accent-study);
+        }
+
+        .btn-primary {
+            grid-column: 1 / -1;
+            background: var(--accent-study);
+            border-color: var(--accent-study);
+            color: white;
+        }
+
+        .btn-primary::before {
+            background: #1e7e34;
+        }
+
+        .btn-primary:hover {
+            background: #1e7e34;
+            color: white;
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Quick Sidebar (Presets only) */
+        .quick-sidebar {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .panel-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* Presets */
+        .preset-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .preset-btn {
+            padding: 16px;
+            border: 2px solid var(--border);
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .preset-btn:hover {
+            border-color: var(--accent-study);
+            background: var(--bg-secondary);
+            transform: translateX(4px);
+        }
+
+        .preset-btn::before {
+            display: none;
+        }
+
+        .preset-btn.active {
+            border-color: var(--accent-study);
+            background: rgba(40, 167, 69, 0.1);
+        }
+
+        .preset-name {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .preset-emoji {
+            font-size: 18px;
+        }
+
+        .preset-time {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Custom Timer */
+        .custom-inputs {
+            display: grid;
+            gap: 16px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        input[type="number"] {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 12px 16px;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: var(--accent-study);
+            background: var(--bg-secondary);
+        }
+
+        .unit {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .stat-card {
+            background: var(--bg-tertiary);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--accent-study);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Session History */
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .history-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .history-list::-webkit-scrollbar-track {
+            background: var(--bg-tertiary);
+            border-radius: 10px;
+        }
+
+        .history-list::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 10px;
+        }
+
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .history-type {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .history-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-study);
+        }
+
+        .history-dot.break {
+            background: var(--accent-break);
+        }
+
+        .history-time {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+
+        /* Settings */
+        .settings-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .settings-row:last-child {
+            border-bottom: none;
+        }
+
+        .setting-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Toggle Switch */
+        .toggle {
+            position: relative;
+            width: 48px;
+            height: 24px;
+        }
+
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border);
+            border-radius: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-slider::before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background: var(--text-muted);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .toggle input:checked + .toggle-slider {
+            background: var(--accent-study);
+            border-color: var(--accent-study);
+        }
+
+        .toggle input:checked + .toggle-slider::before {
+            transform: translateX(24px);
+            background: white;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent-study);
+            border-radius: 12px;
+            padding: 20px 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            transform: translateX(400px);
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 1000;
+            max-width: 320px;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: var(--accent-study);
+        }
+
+        .notification-message {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .notification.break {
+            border-color: var(--accent-break);
+        }
+
+        .notification.break .notification-title {
+            color: var(--accent-break);
+        }
+
+        /* Footer Info */
+        .info-footer {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .info-block h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .info-block p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .info-block ul {
+            list-style: none;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .info-block ul li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .info-block ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-study);
+        }
+
+        /* Site Footer */
+        .site-footer {
+            background: var(--bg-secondary);
+            border-top: 2px solid var(--border);
+            padding: 60px 0 30px;
+            margin-top: 80px;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .footer-brand p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 80px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-column h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 16px 0;
+            color: var(--text-primary);
+        }
+
+        .footer-column a {
+            font-family: 'Inter', sans-serif;
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-study);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-bottom p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .timer-quick-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .secondary-panels {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-header {
+                padding: 20px 30px;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .site-header nav a {
+                margin-left: 20px;
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 20px 16px;
+            }
+
+            .page-header {
+                margin-bottom: 40px;
+            }
+
+            .timer-quick-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timer-section {
+                padding: 40px 24px;
+            }
+
+            .timer-display {
+                margin: 30px 0;
+            }
+
+            .controls {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-primary {
+                grid-column: 1;
+            }
+
+            .secondary-panels {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                padding: 0 30px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .footer-brand {
+                max-width: 100%;
+            }
+            
+            .footer-links {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-header nav a {
+                margin-left: 16px;
+                font-size: 13px;
+            }
+
+            .footer-container {
+                padding: 0 16px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Site Header -->
+    <header class="site-header">
+        <a href="/" class="logo">ToolNest</a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about-toolnest/">About</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="Breadcrumb" class="breadcrumb">
+            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a itemprop="item" href="/">
+                        <span itemprop="name">Home</span>
+                    </a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <span itemprop="name">Study Timer</span>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ol>
+        </nav>
+
+        <header class="page-header">
+            <h1>Study Timer</h1>
+            <p class="subtitle">Focus sessions designed for students. No distractions, just pure productivity.</p>
+        </header>
+
+        <div class="main-layout">
+            <!-- Timer Section -->
+            <div class="timer-section" id="timerSection">
+                <div class="session-label" id="sessionLabel">
+                    <span class="session-indicator"></span>
+                    <span>Focus Session</span>
+                </div>
+
+                <div class="timer-display" id="timerDisplay">25:00</div>
+
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+
+                <div class="controls">
+                    <button class="btn-primary" id="startBtn">
+                        <span>Start Session</span>
+                    </button>
+                    <button id="pauseBtn" style="display: none;">
+                        <span>Pause</span>
+                    </button>
+                    <button id="skipBtn">
+                        <span>Skip</span>
+                    </button>
+                    <button id="resetBtn">
+                        <span>Reset</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Presets -->
+                <div class="panel">
+                    <h2 class="panel-title">Quick Presets</h2>
+                    <div class="preset-grid">
+                        <button class="preset-btn active" data-preset="pomodoro">
+                            <div class="preset-name">
+                                <span class="preset-emoji">🍅</span>
+                                <span>Classic Pomodoro</span>
+                            </div>
+                            <div class="preset-time">25 min focus · 5 min break</div>
+                        </button>
+                        <button class="preset-btn" data-preset="deep">
+                            <div class="preset-name">
+                                <span class="preset-emoji">🎯</span>
+                                <span>Deep Work</span>
+                            </div>
+                            <div class="preset-time">50 min focus · 10 min break</div>
+                        </button>
+                        <button class="preset-btn" data-preset="study">
+                            <div class="preset-name">
+                                <span class="preset-emoji">📚</span>
+                                <span>Study Session</span>
+                            </div>
+                            <div class="preset-time">45 min focus · 15 min break</div>
+                        </button>
+                        <button class="preset-btn" data-preset="exam">
+                            <div class="preset-name">
+                                <span class="preset-emoji">✏️</span>
+                                <span>Exam Prep</span>
+                            </div>
+                            <div class="preset-time">90 min focus · 20 min break</div>
+                        </button>
+                        <button class="preset-btn" data-preset="sprint">
+                            <div class="preset-name">
+                                <span class="preset-emoji">⚡</span>
+                                <span>Quick Sprint</span>
+                            </div>
+                            <div class="preset-time">15 min focus · 3 min break</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Custom Timer -->
+                <div class="panel">
+                    <h2 class="panel-title">Custom Timer</h2>
+                    <div class="custom-inputs">
+                        <div class="input-group">
+                            <label class="input-label">Focus Duration</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="customFocus" min="1" max="180" value="25">
+                                <span class="unit">min</span>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="input-label">Break Duration</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="customBreak" min="1" max="60" value="5">
+                                <span class="unit">min</span>
+                            </div>
+                        </div>
+                        <button id="applyCustomBtn">
+                            <span>Apply Custom Timer</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="panel">
+                    <h2 class="panel-title">Today's Stats</h2>
+                
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value" id="totalMinutes">0</div>
+                            <div class="stat-label">Minutes</div>
+                        </div>
+                    
+                        <div class="stat-card">
+                            <div class="stat-value" id="sessionsCount">0</div>
+                            <div class="stat-label">Sessions</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Settings -->
+                <div class="panel">
+                    <h2 class="panel-title">Settings</h2>
+                    <div class="settings-row">
+                        <span class="setting-label">Auto-start breaks</span>
+                        <label class="toggle">
+                            <input type="checkbox" id="autoBreak" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-row">
+                        <span class="setting-label">Sound notifications</span>
+                        <label class="toggle">
+                            <input type="checkbox" id="soundToggle" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-row">
+                        <span class="setting-label">Browser notifications</span>
+                        <label class="toggle">
+                            <input type="checkbox" id="notificationToggle" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Recent History -->
+                <div class="panel">
+                    <h2 class="panel-title">Recent Sessions</h2>
+                    <div class="history-list" id="historyList">
+                        <div class="empty-state">No sessions yet. Start your first focus session!</div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Info Footer -->
+        <footer class="info-footer">
+            <div class="info-grid">
+                <div class="info-block">
+                    <h3>Why Use a Web Timer?</h3>
+                    <p>Unlike mobile apps, this web-based timer keeps you focused. No need to unlock your phone, no distracting notifications, no social media temptation. Keep your study tools in one browser tab while you write essays, research papers, or use the word counter.</p>
+                </div>
+                <div class="info-block">
+                    <h3>How It Works</h3>
+                    <ul>
+                        <li>Choose a preset or create your own custom timer</li>
+                        <li>Focus during study sessions, relax during breaks</li>
+                        <li>Track your daily progress and build consistency</li>
+                        <li>Works offline - no login or downloads required</li>
+                    </ul>
+                </div>
+                <div class="info-block">
+                    <h3>Perfect For</h3>
+                    <ul>
+                        <li>Essay writing and research papers</li>
+                        <li>Exam preparation and review sessions</li>
+                        <li>Reading assignments and textbook study</li>
+                        <li>Problem sets and homework completion</li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="logo">ToolNest</a>
+                    <p>Free online tools for students and professionals.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Tools</h4>
+                        <a href="/word-counter/">Word Counter</a>
+                        <a href="/gpa-calculator/">GPA Calculator</a>
+                        <a href="/study-timer/">Study Timer</a>
+                        <a href="#">More coming soon...</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="/about-toolnest/">About</a>
+                        <a href="/contact-toolnest/">Contact</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="/privacy.html">Privacy Policy</a>
+                        <a href="/terms.html">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 ToolNest. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification (Fixed Position) -->
+    <div class="notification" id="notification">
+        <div class="notification-title" id="notificationTitle">Session Complete!</div>
+        <div class="notification-message" id="notificationMessage">Time for a 5-minute break</div>
+    </div>
+
+    <script>
+        class StudyTimer {
+            constructor() {
+                this.isRunning = false;
+                this.isPaused = false;
+                this.isBreak = false;
+                this.timeRemaining = 25 * 60;
+                this.totalTime = 25 * 60;
+                this.interval = null;
+                
+                this.currentPreset = {
+                    name: 'Classic Pomodoro',
+                    focus: 25,
+                    break: 5
+                };
+                
+                this.presets = {
+                    pomodoro: { name: 'Classic Pomodoro', focus: 25, break: 5 },
+                    deep: { name: 'Deep Work', focus: 50, break: 10 },
+                    study: { name: 'Study Session', focus: 45, break: 15 },
+                    exam: { name: 'Exam Prep', focus: 90, break: 20 },
+                    sprint: { name: 'Quick Sprint', focus: 15, break: 3 }
+                };
+                
+                this.settings = {
+                    autoBreak: true,
+                    sound: true,
+                    notifications: true
+                };
+                
+                this.stats = {
+                    sessionsToday: 0,
+                    minutesToday: 0,
+                    lastResetDate: new Date().toDateString()
+                };
+                
+                this.history = [];
+                
+                this.initElements();
+                this.loadData();
+                this.initEventListeners();
+                this.updateDisplay();
+                this.requestNotificationPermission();
+            }
+            
+            initElements() {
+                this.timerSection = document.getElementById('timerSection');
+                this.sessionLabel = document.getElementById('sessionLabel');
+                this.timerDisplay = document.getElementById('timerDisplay');
+                this.progressBar = document.getElementById('progressBar');
+                this.startBtn = document.getElementById('startBtn');
+                this.pauseBtn = document.getElementById('pauseBtn');
+                this.skipBtn = document.getElementById('skipBtn');
+                this.resetBtn = document.getElementById('resetBtn');
+                this.notification = document.getElementById('notification');
+                this.notificationTitle = document.getElementById('notificationTitle');
+                this.notificationMessage = document.getElementById('notificationMessage');
+                this.sessionsCount = document.getElementById('sessionsCount');
+                this.totalMinutes = document.getElementById('totalMinutes');
+                this.historyList = document.getElementById('historyList');
+                this.customFocus = document.getElementById('customFocus');
+                this.customBreak = document.getElementById('customBreak');
+                this.applyCustomBtn = document.getElementById('applyCustomBtn');
+                this.autoBreakToggle = document.getElementById('autoBreak');
+                this.soundToggle = document.getElementById('soundToggle');
+                this.notificationToggle = document.getElementById('notificationToggle');
+            }
+            
+            initEventListeners() {
+                this.startBtn.addEventListener('click', () => this.start());
+                this.pauseBtn.addEventListener('click', () => this.pause());
+                this.skipBtn.addEventListener('click', () => this.skip());
+                this.resetBtn.addEventListener('click', () => this.reset());
+                
+                document.querySelectorAll('.preset-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const preset = e.currentTarget.dataset.preset;
+                        this.selectPreset(preset);
+                    });
+                });
+                
+                this.applyCustomBtn.addEventListener('click', () => this.applyCustomTimer());
+                
+                this.autoBreakToggle.addEventListener('change', (e) => {
+                    this.settings.autoBreak = e.target.checked;
+                    this.saveSettings();
+                });
+                
+                this.soundToggle.addEventListener('change', (e) => {
+                    this.settings.sound = e.target.checked;
+                    this.saveSettings();
+                });
+                
+                this.notificationToggle.addEventListener('change', (e) => {
+                    this.settings.notifications = e.target.checked;
+                    this.saveSettings();
+                    if (e.target.checked) {
+                        this.requestNotificationPermission();
+                    }
+                });
+                
+                document.addEventListener('keydown', (e) => {
+                    if (e.code === 'Space' && e.target.tagName !== 'INPUT') {
+                        e.preventDefault();
+                        if (this.isRunning && !this.isPaused) {
+                            this.pause();
+                        } else {
+                            this.start();
+                        }
+                    }
+                });
+            }
+            
+            selectPreset(presetKey) {
+                if (this.isRunning || this.isPaused) {
+                    this.reset();
+                }
+                
+                document.querySelectorAll('.preset-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelector(`[data-preset="${presetKey}"]`).classList.add('active');
+                
+                this.currentPreset = { ...this.presets[presetKey] };
+                this.customFocus.value = this.currentPreset.focus;
+                this.customBreak.value = this.currentPreset.break;
+                this.timeRemaining = this.currentPreset.focus * 60;
+                this.totalTime = this.currentPreset.focus * 60;
+                this.isBreak = false;
+                this.updateDisplay();
+                this.updateSessionLabel();
+            }
+            
+            applyCustomTimer() {
+                const focusMin = parseInt(this.customFocus.value);
+                const breakMin = parseInt(this.customBreak.value);
+                
+                if (!focusMin || !breakMin || focusMin < 1 || breakMin < 1) {
+                    alert('Please enter valid durations (minimum 1 minute)');
+                    return;
+                }
+                
+                if (this.isRunning || this.isPaused) {
+                    this.reset();
+                }
+                
+                document.querySelectorAll('.preset-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                this.currentPreset = {
+                    name: 'Custom Timer',
+                    focus: focusMin,
+                    break: breakMin
+                };
+                
+                this.timeRemaining = focusMin * 60;
+                this.totalTime = focusMin * 60;
+                this.isBreak = false;
+                this.updateDisplay();
+                this.updateSessionLabel();
+            }
+            
+            start() {
+                if (this.isRunning && !this.isPaused) return;
+                
+                this.isRunning = true;
+                this.isPaused = false;
+                this.timerSection.classList.add('active');
+                
+                this.startBtn.style.display = 'none';
+                this.pauseBtn.style.display = 'block';
+                
+                this.interval = setInterval(() => {
+                    this.timeRemaining--;
+                    this.updateDisplay();
+                    
+                    if (this.timeRemaining <= 0) {
+                        this.complete();
+                    }
+                }, 1000);
+            }
+            
+            pause() {
+                this.isPaused = true;
+                this.isRunning = false;
+                this.timerSection.classList.remove('active');
+                
+                clearInterval(this.interval);
+                
+                this.startBtn.style.display = 'block';
+                this.startBtn.querySelector('span').textContent = 'Resume';
+                this.pauseBtn.style.display = 'none';
+            }
+            
+            skip() {
+                if (!this.isRunning && !this.isPaused) {
+                    this.isBreak = !this.isBreak;
+                    this.timeRemaining = this.isBreak ? 
+                        this.currentPreset.break * 60 : 
+                        this.currentPreset.focus * 60;
+                    this.totalTime = this.timeRemaining;
+                    this.updateDisplay();
+                    this.updateSessionLabel();
+                } else {
+                    this.complete(true);
+                }
+            }
+            
+            reset() {
+                this.isRunning = false;
+                this.isPaused = false;
+                this.timerSection.classList.remove('active');
+                
+                clearInterval(this.interval);
+                
+                this.timeRemaining = this.isBreak ? 
+                    this.currentPreset.break * 60 : 
+                    this.currentPreset.focus * 60;
+                this.totalTime = this.timeRemaining;
+                
+                this.startBtn.style.display = 'block';
+                this.startBtn.querySelector('span').textContent = 'Start Session';
+                this.pauseBtn.style.display = 'none';
+                
+                this.updateDisplay();
+            }
+            
+            complete(skipped = false) {
+                clearInterval(this.interval);
+                this.isRunning = false;
+                this.isPaused = false;
+                this.timerSection.classList.remove('active');
+                
+                if (!this.isBreak && !skipped) {
+                    const duration = Math.floor(this.totalTime / 60);
+                    this.stats.sessionsToday++;
+                    this.stats.minutesToday += duration;
+                    this.addToHistory('focus', duration);
+                    this.updateStats();
+                    
+                    this.showNotification(
+                        'Focus Session Complete! 🎉',
+                        `Great work! Time for a ${this.currentPreset.break}-minute break.`,
+                        'study'
+                    );
+                    
+                    this.isBreak = true;
+                    this.timeRemaining = this.currentPreset.break * 60;
+                    this.totalTime = this.timeRemaining;
+                    
+                    if (this.settings.autoBreak) {
+                        setTimeout(() => this.start(), 2000);
+                    }
+                } else if (this.isBreak && !skipped) {
+                    const duration = Math.floor(this.totalTime / 60);
+                    this.stats.minutesToday += duration;
+                    this.addToHistory('break', duration);
+                    this.updateStats();
+                    
+                    this.showNotification(
+                        'Break Complete! 💪',
+                        'Ready to start another focus session?',
+                        'break'
+                    );
+                    
+                    this.isBreak = false;
+                    this.timeRemaining = this.currentPreset.focus * 60;
+                    this.totalTime = this.timeRemaining;
+                }
+                
+                if (this.settings.sound) {
+                    this.playSound();
+                }
+                
+                this.startBtn.style.display = 'block';
+                this.startBtn.querySelector('span').textContent = 'Start Session';
+                this.pauseBtn.style.display = 'none';
+                
+                this.updateDisplay();
+                this.updateSessionLabel();
+            }
+            
+            updateDisplay() {
+                const minutes = Math.floor(this.timeRemaining / 60);
+                const seconds = this.timeRemaining % 60;
+                this.timerDisplay.textContent = 
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                const progress = ((this.totalTime - this.timeRemaining) / this.totalTime) * 100;
+                this.progressBar.style.width = `${progress}%`;
+                
+                if (this.isRunning && !this.isPaused) {
+                    document.title = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} - ${this.isBreak ? 'Break' : 'Focus'} | Study Timer`;
+                } else {
+                    document.title = 'Study Timer - Pomodoro & Custom Focus Sessions for Students';
+                }
+                
+                if (this.isBreak) {
+                    this.progressBar.classList.add('break');
+                } else {
+                    this.progressBar.classList.remove('break');
+                }
+            }
+            
+            updateSessionLabel() {
+                if (this.isBreak) {
+                    this.sessionLabel.innerHTML = `
+                        <span class="session-indicator"></span>
+                        <span>Break Time</span>
+                    `;
+                    this.sessionLabel.classList.add('break');
+                } else {
+                    this.sessionLabel.innerHTML = `
+                        <span class="session-indicator"></span>
+                        <span>Focus Session</span>
+                    `;
+                    this.sessionLabel.classList.remove('break');
+                }
+            }
+            
+            updateStats() {
+                this.sessionsCount.textContent = this.stats.sessionsToday;
+                this.totalMinutes.textContent = this.stats.minutesToday;
+                this.saveStats();
+            }
+            
+            addToHistory(type, duration) {
+                const now = new Date();
+                const timeStr = now.toLocaleTimeString('en-US', { 
+                    hour: 'numeric', 
+                    minute: '2-digit',
+                    hour12: true 
+                });
+                
+                this.history.unshift({
+                    type,
+                    duration,
+                    time: timeStr,
+                    timestamp: now.getTime()
+                });
+                
+                if (this.history.length > 10) {
+                    this.history = this.history.slice(0, 10);
+                }
+                
+                this.renderHistory();
+                this.saveHistory();
+            }
+            
+            renderHistory() {
+                if (this.history.length === 0) {
+                    this.historyList.innerHTML = '<div class="empty-state">No sessions yet. Start your first focus session!</div>';
+                    return;
+                }
+                
+                this.historyList.innerHTML = this.history.map(item => `
+                    <div class="history-item">
+                        <div class="history-type">
+                            <span class="history-dot ${item.type === 'break' ? 'break' : ''}"></span>
+                            <span>${item.type === 'focus' ? 'Focus' : 'Break'} - ${item.duration} min</span>
+                        </div>
+                        <span class="history-time">${item.time}</span>
+                    </div>
+                `).join('');
+            }
+            
+            showNotification(title, message, type = 'study') {
+                this.notificationTitle.textContent = title;
+                this.notificationMessage.textContent = message;
+                this.notification.classList.remove('break');
+                
+                if (type === 'break') {
+                    this.notification.classList.add('break');
+                }
+                
+                this.notification.classList.add('show');
+                
+                setTimeout(() => {
+                    this.notification.classList.remove('show');
+                }, 5000);
+                
+                if (this.settings.notifications && 'Notification' in window && Notification.permission === 'granted') {
+                    new Notification(title, {
+                        body: message,
+                        icon: type === 'break' ? '🎉' : '🎯'
+                    });
+                }
+            }
+            
+            playSound() {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.value = 800;
+                oscillator.type = 'sine';
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.3);
+            }
+            
+            requestNotificationPermission() {
+                if ('Notification' in window && Notification.permission === 'default') {
+                    Notification.requestPermission();
+                }
+            }
+            
+            saveSettings() {
+                localStorage.setItem('studyTimerSettings', JSON.stringify(this.settings));
+            }
+            
+            loadSettings() {
+                const saved = localStorage.getItem('studyTimerSettings');
+                if (saved) {
+                    this.settings = { ...this.settings, ...JSON.parse(saved) };
+                    this.autoBreakToggle.checked = this.settings.autoBreak;
+                    this.soundToggle.checked = this.settings.sound;
+                    this.notificationToggle.checked = this.settings.notifications;
+                }
+            }
+            
+            saveStats() {
+                localStorage.setItem('studyTimerStats', JSON.stringify(this.stats));
+            }
+            
+            loadStats() {
+                const saved = localStorage.getItem('studyTimerStats');
+                if (saved) {
+                    this.stats = JSON.parse(saved);
+                    
+                    const today = new Date().toDateString();
+                    if (this.stats.lastResetDate !== today) {
+                        this.stats.sessionsToday = 0;
+                        this.stats.minutesToday = 0;
+                        this.stats.lastResetDate = today;
+                        this.saveStats();
+                    }
+                    
+                    this.updateStats();
+                }
+            }
+            
+            saveHistory() {
+                localStorage.setItem('studyTimerHistory', JSON.stringify(this.history));
+            }
+            
+            loadHistory() {
+                const saved = localStorage.getItem('studyTimerHistory');
+                if (saved) {
+                    this.history = JSON.parse(saved);
+                    
+                    const oneDayAgo = Date.now() - (24 * 60 * 60 * 1000);
+                    this.history = this.history.filter(item => item.timestamp > oneDayAgo);
+                    
+                    this.renderHistory();
+                }
+            }
+            
+            loadData() {
+                this.loadSettings();
+                this.loadStats();
+                this.loadHistory();
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            new StudyTimer();
+        });
+    </script>
+</body>
+</html>

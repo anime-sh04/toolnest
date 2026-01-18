@@ -7,22 +7,27 @@
   </url>
 
   <url>
-    <loc>https://toolnest.site/gpa-calculator</loc>
+    <loc>https://toolnest.site/gpa-calculator/</loc>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://toolnest.site/word-counter</loc>
+    <loc>https://toolnest.site/study-timer/</loc>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://toolnest.site/about-toolnest</loc>
+    <loc>https://toolnest.site/word-counter/</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://toolnest.site/about-toolnest/</loc>
     <priority>0.4</priority>
   </url>
 
   <url>
-    <loc>https://toolnest.site/contact-toolnest</loc>
+    <loc>https://toolnest.site/contact-toolnest/</loc>
     <priority>0.4</priority>
   </url>
 
