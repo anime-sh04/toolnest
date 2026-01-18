@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA & CGPA Calculator for Students (School, College, University)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Merriweather:wght@400;700&family=Inter:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/shared.css">
+    <link rel="stylesheet" href="/css/gpa.css">
+
+</head>
+
+<body>
+
+<header class="site-header">
+    <a href="/" class="logo">ToolNest</a>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about-toolnest/">About</a>
+        <a href="/contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="page-container">
+
+    <h1>GPA & CGPA Calculator</h1>
+    <p class="intro">
+        Calculate your GPA and cumulative GPA using your university's official grading scale. 
+        Works with any grading system - just match the grade points to your syllabus or marksheet.
+    </p>
+
+    <div class="controls">
+        <button class="btn" onclick="window.toggleGradingModal()">
+            <span>⚙️</span> Grading System
+        </button>
+        <button class="btn btn-primary" onclick="window.addSemester()">
+            <span>+</span> Add Semester
+        </button>
+    </div>
+
+    <div id="semestersContainer"></div>
+
+    <section class="results-section">
+        <h2>Your Results</h2>
+        <div id="errorBanner" style="display: none;"></div>
+        <div class="results-grid" id="resultsGrid"></div>
+    </section>
+
+</div>
+
+<!-- Grading System Modal -->
+<div class="grading-modal" id="gradingModal">
+    <div class="grading-content">
+        <div class="grading-header">
+            <h2>Grading System</h2>
+            <button class="close-btn" onclick="window.toggleGradingModal()">×</button>
+        </div>
+        <p class="modal-description">
+            Enter the official grade points from your university's grading policy (found in your syllabus, academic handbook, or marksheet). 
+            Use a preset to get started quickly, then edit to match your university's exact system.
+        </p>
+        
+        <div id="presetDisclaimer" class="preset-disclaimer"></div>
+        
+        <div class="preset-section">
+            <label for="presetSelector">Quick Start Preset (Optional)</label>
+            <select id="presetSelector" onchange="window.loadPreset(this.value)">
+                <option value="">Select a preset scale...</option>
+                <option value="4.0">4.0 Scale (US Standard)</option>
+                <option value="10.0">10-Point Scale (India/Europe)</option>
+                <option value="5.0">5-Point Scale</option>
+                <option value="7.0">7-Point Scale (Australia)</option>
+                <option value="percentage">Percentage to 4.0 Conversion (Approximate)</option>
+            </select>
+            <p class="preset-note">
+                Presets only prefill the table below - you can freely edit all values to match your university's official policy.
+            </p>
+        </div>
+        
+        <div id="gradingTable"></div>
+        <button class="btn btn-primary" onclick="window.addGrade()" style="margin-top: 16px;">+ Add Grade</button>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="/" class="logo">ToolNest</a>
+                <p>Free online tools for students and professionals.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Tools</h4>
+                    <a href="/word-counter/">Word Counter</a>
+                    <a href="/gpa-calculator/">GPA Calculator</a>
+                    <a href="#">More coming soon...</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <a href="/about-toolnest/">About</a>
+                    <a href="/contact-toolnest/">Contact</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 ToolNest. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+
+<script src="/js/gpa-calculator.js"></script>
+
+</body>
+</html>
