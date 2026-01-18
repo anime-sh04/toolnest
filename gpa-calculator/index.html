@@ -3,59 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GPA & CGPA Calculator for Students (School, College, University)</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Free GPA Calculator & CGPA Calculator - Calculate Your Grade Point Average</title>
+    <meta name="title" content="Free GPA Calculator & CGPA Calculator - Calculate Your Grade Point Average">
+    <meta name="description" content="Free online GPA and CGPA calculator for college and university students. Calculate semester GPA and cumulative GPA with any grading scale (4.0, 10-point, percentage). Easy-to-use with multiple semesters support.">
+    <meta name="keywords" content="GPA calculator, CGPA calculator, grade point average calculator, semester GPA, cumulative GPA, college GPA calculator, university GPA calculator, 4.0 scale calculator, 10 point GPA calculator, calculate GPA online, free GPA calculator">
+    <meta name="author" content="ToolNest">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yoursite.com/gpa-calculator/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yoursite.com/gpa-calculator/">
+    <meta property="og:title" content="Free GPA Calculator & CGPA Calculator - Calculate Your Grade Point Average">
+    <meta property="og:description" content="Free online GPA and CGPA calculator for college and university students. Calculate semester GPA and cumulative GPA with any grading scale.">
+    <meta property="og:image" content="https://yoursite.com/images/gpa-calculator-og.jpg">
+    <meta property="og:site_name" content="ToolNest">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yoursite.com/gpa-calculator/">
+    <meta property="twitter:title" content="Free GPA Calculator & CGPA Calculator - Calculate Your Grade Point Average">
+    <meta property="twitter:description" content="Free online GPA and CGPA calculator for college and university students. Calculate semester GPA and cumulative GPA with any grading scale.">
+    <meta property="twitter:image" content="https://yoursite.com/images/gpa-calculator-twitter.jpg">
+    
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "GPA & CGPA Calculator",
+      "url": "https://yoursite.com/gpa-calculator/",
+      "description": "Free online GPA and CGPA calculator for college and university students. Calculate semester GPA and cumulative GPA with any grading scale.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Calculate semester GPA",
+        "Calculate cumulative CGPA",
+        "Support for multiple grading scales (4.0, 10-point, percentage)",
+        "Multiple semester support",
+        "Customizable grading system"
+      ],
+      "browserRequirements": "Requires JavaScript",
+      "softwareVersion": "1.0",
+      "author": {
+        "@type": "Organization",
+        "name": "ToolNest",
+        "url": "https://yoursite.com"
+      }
+    }
+    </script>
+    
+    <!-- Additional Schema for FAQPage (if you add FAQs) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I calculate my GPA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To calculate your GPA: 1) Enter your course names and credit hours, 2) Select the grade received for each course, 3) The calculator automatically computes your GPA by multiplying grade points by credit hours and dividing by total credits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between GPA and CGPA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GPA (Grade Point Average) is calculated for a single semester or term, while CGPA (Cumulative Grade Point Average) is calculated across all semesters to show your overall academic performance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this calculator work with different grading scales?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our calculator supports all grading scales including 4.0 scale (US), 10-point scale (India/Europe), 5-point scale, 7-point scale (Australia), and percentage-based systems. You can customize the grading system to match your university's requirements."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://yoursite.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "GPA Calculator",
+          "item": "https://yoursite.com/gpa-calculator/"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Merriweather:wght@400;700&family=Inter:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/shared.css">
     <link rel="stylesheet" href="/css/gpa.css">
+    <link rel="stylesheet" href="/css/seogpa.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
 </head>
 
 <body>
 
 <header class="site-header">
-    <a href="/" class="logo">ToolNest</a>
-    <nav>
+    <a href="/" class="logo" aria-label="ToolNest Home">ToolNest</a>
+    <nav aria-label="Main navigation">
         <a href="/">Home</a>
         <a href="/about-toolnest/">About</a>
-        <a href="/contact.html">Contact</a>
+        <a href="/contact-toolnest/">Contact</a>
     </nav>
 </header>
 
-<div class="page-container">
+<main class="page-container">
+    
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="/">
+                    <span itemprop="name">Home</span>
+                </a>
+                <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name">GPA Calculator</span>
+                <meta itemprop="position" content="2" />
+            </li>
+        </ol>
+    </nav>
 
-    <h1>GPA & CGPA Calculator</h1>
+    <h1>GPA & CGPA Calculator - Calculate Your Grade Point Average</h1>
     <p class="intro">
-        Calculate your GPA and cumulative GPA using your university's official grading scale. 
-        Works with any grading system - just match the grade points to your syllabus or marksheet.
+        Calculate your GPA (Grade Point Average) and cumulative GPA using your university's official grading scale. 
+        Works with any grading system - 4.0 scale, 10-point scale, percentage, or custom. Just match the grade points to your syllabus or marksheet.
     </p>
 
     <div class="controls">
-        <button class="btn" onclick="window.toggleGradingModal()">
+        <button class="btn" onclick="window.toggleGradingModal()" aria-label="Configure grading system">
             <span>⚙️</span> Grading System
         </button>
-        <button class="btn btn-primary" onclick="window.addSemester()">
+        <button class="btn btn-primary" onclick="window.addSemester()" aria-label="Add a new semester">
             <span>+</span> Add Semester
         </button>
     </div>
 
-    <div id="semestersContainer"></div>
+    <div id="semestersContainer" role="region" aria-label="Semester grades input"></div>
 
-    <section class="results-section">
-        <h2>Your Results</h2>
-        <div id="errorBanner" style="display: none;"></div>
-        <div class="results-grid" id="resultsGrid"></div>
+    <section class="results-section" aria-labelledby="results-heading">
+        <h2 id="results-heading">Your Results</h2>
+        <div id="errorBanner" style="display: none;" role="alert"></div>
+        <div class="results-grid" id="resultsGrid" aria-live="polite"></div>
     </section>
+    
+    <!-- SEO Content Section -->
+    <article class="seo-content">
+        <h2>How to Use This GPA Calculator</h2>
+        <p>
+            Our free GPA calculator helps college and university students calculate their semester GPA and cumulative CGPA quickly and accurately. 
+            Whether you're using a 4.0 scale, 10-point scale, or any other grading system, this calculator adapts to your needs.
+        </p>
+        
+        <h3>Step-by-Step Guide</h3>
+        <ol>
+            <li><strong>Set Your Grading System:</strong> Click "Grading System" to configure your university's grade point scale</li>
+            <li><strong>Add Semesters:</strong> Click "Add Semester" to create entries for each term</li>
+            <li><strong>Enter Course Details:</strong> Input course names, credit hours, and grades for each subject</li>
+            <li><strong>View Results:</strong> Your GPA and CGPA are calculated automatically as you enter data</li>
+        </ol>
+        
+        <h3>Supported Grading Scales</h3>
+        <ul>
+            <li><strong>4.0 Scale:</strong> Standard US grading system (A=4.0, B=3.0, C=2.0, etc.)</li>
+            <li><strong>10-Point Scale:</strong> Common in India and parts of Europe</li>
+            <li><strong>5-Point Scale:</strong> Used in some US high schools and colleges</li>
+            <li><strong>7-Point Scale:</strong> Australian grading system</li>
+            <li><strong>Percentage Scale:</strong> Convert percentage marks to GPA</li>
+            <li><strong>Custom Scales:</strong> Create your own grading system to match your university</li>
+        </ul>
+        
+        <h3>Understanding GPA vs CGPA</h3>
+        <p>
+            <strong>GPA (Grade Point Average)</strong> represents your academic performance for a single semester or term. 
+            It's calculated by multiplying each course's grade points by its credit hours, summing these values, and dividing by total credit hours.
+        </p>
+        <p>
+            <strong>CGPA (Cumulative Grade Point Average)</strong> shows your overall academic performance across all semesters. 
+            It's the weighted average of all your semester GPAs, giving you a comprehensive view of your academic standing.
+        </p>
+        
+        <h3>Why Use Our GPA Calculator?</h3>
+        <ul>
+            <li>✓ <strong>100% Free:</strong> No registration or payment required</li>
+            <li>✓ <strong>Universal:</strong> Works with any grading system worldwide</li>
+            <li>✓ <strong>Accurate:</strong> Precise calculations following standard GPA formulas</li>
+            <li>✓ <strong>Multiple Semesters:</strong> Track your academic progress over time</li>
+            <li>✓ <strong>User-Friendly:</strong> Simple interface with instant results</li>
+            <li>✓ <strong>Private:</strong> All calculations happen in your browser - no data stored</li>
+        </ul>
+        
+        <h3>Common GPA Calculations</h3>
+        <p>
+            Students commonly need to calculate GPA for various purposes: college applications, scholarship eligibility, 
+            academic probation status, honors distinction, graduate school admissions, and general academic planning. 
+            Our calculator handles all these scenarios with ease.
+        </p>
+    </article>
 
-</div>
+</main>
 
 <!-- Grading System Modal -->
-<div class="grading-modal" id="gradingModal">
+<div class="grading-modal" id="gradingModal" role="dialog" aria-labelledby="grading-modal-title" aria-modal="true">
     <div class="grading-content">
         <div class="grading-header">
-            <h2>Grading System</h2>
-            <button class="close-btn" onclick="window.toggleGradingModal()">×</button>
+            <h2 id="grading-modal-title">Grading System</h2>
+            <button class="close-btn" onclick="window.toggleGradingModal()" aria-label="Close grading system modal">×</button>
         </div>
         <p class="modal-description">
             Enter the official grade points from your university's grading policy (found in your syllabus, academic handbook, or marksheet). 
@@ -66,7 +257,7 @@
         
         <div class="preset-section">
             <label for="presetSelector">Quick Start Preset (Optional)</label>
-            <select id="presetSelector" onchange="window.loadPreset(this.value)">
+            <select id="presetSelector" onchange="window.loadPreset(this.value)" aria-label="Select grading scale preset">
                 <option value="">Select a preset scale...</option>
                 <option value="4.0">4.0 Scale (US Standard)</option>
                 <option value="10.0">10-Point Scale (India/Europe)</option>
@@ -88,11 +279,11 @@
     <div class="footer-container">
         <div class="footer-content">
             <div class="footer-brand">
-                <a href="/" class="logo">ToolNest</a>
+                <a href="/" class="logo" aria-label="ToolNest Home">ToolNest</a>
                 <p>Free online tools for students and professionals.</p>
             </div>
             
-            <div class="footer-links">
+            <nav class="footer-links" aria-label="Footer navigation">
                 <div class="footer-column">
                     <h4>Tools</h4>
                     <a href="/word-counter/">Word Counter</a>
@@ -111,7 +302,7 @@
                     <a href="/privacy.html">Privacy Policy</a>
                     <a href="/terms.html">Terms of Service</a>
                 </div>
-            </div>
+            </nav>
         </div>
         
         <div class="footer-bottom">
@@ -119,7 +310,6 @@
         </div>
     </div>
 </footer>
-
 
 <script src="/js/gpa-calculator.js"></script>
 
