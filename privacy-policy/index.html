@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy for ToolNest - Learn how we collect, use, and protect your information on our student-focused tools website.">
+    <title>Privacy Policy - ToolNest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/shared.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: #999;
+            font-size: 0.875rem;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        /* Table of Contents Card */
+        .toc-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .toc-card h2 {
+            font-size: 1.25rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .toc {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 10px;
+        }
+
+        .toc a {
+            color: #4a90e2;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+
+        .toc a:hover {
+            color: #357abd;
+        }
+
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .section {
+            margin-bottom: 40px;
+            scroll-margin-top: 80px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            font-weight: 600;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        h3 {
+            font-size: 1.125rem;
+            color: #1a1a1a;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .content-card a {
+            color: #4a90e2;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .content-card a:hover {
+            color: #357abd;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: #f0f7ff;
+            border-left: 4px solid #4a90e2;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: #1a1a1a;
+        }
+
+        /* Contact Card */
+        .contact-card {
+            background: #2c3e50;
+            color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .contact-card h2 {
+            color: white;
+            border-bottom-color: rgba(255,255,255,0.2);
+        }
+
+        .contact-card p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .contact-card strong {
+            color: white;
+        }
+
+        .contact-card a {
+            color: #4a90e2;
+        }
+
+        .contact-card a:hover {
+            color: #6db3ff;
+        }
+
+        .contact-info-box {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #4a90e2;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+            border: none;
+            font-size: 1.5rem;
+            line-height: 1;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #357abd;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .content-card,
+            .toc-card,
+            .contact-card {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            h3 {
+                font-size: 1.05rem;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header from shared.css -->
+    <header class="site-header">
+        <a href="/" class="logo">ToolNest</a>
+        <nav>
+            <a href="/about-toolnest/">About</a>
+            <a href="/contact-toolnest/">Contact</a>
+            <a href="/blog/" class="active">Blog</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="header">
+            <h1>Privacy Policy</h1>
+            <p>ToolNest - Student-Focused Online Tools</p>
+        </div>
+
+        <div class="last-updated">Last Updated: January 19, 2026</div>
+
+        <!-- Table of Contents -->
+        <div class="toc-card">
+            <h2>Table of Contents</h2>
+            <ol class="toc">
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#information-collect">2. Information We Collect</a></li>
+                <li><a href="#how-use">3. How We Use Your Information</a></li>
+                <li><a href="#cookies">4. Cookies</a></li>
+                <li><a href="#third-party">5. Third-Party Services</a></li>
+                <li><a href="#data-security">6. Data Security</a></li>
+                <li><a href="#children">7. Children's Information</a></li>
+                <li><a href="#user-consent">8. User Consent</a></li>
+                <li><a href="#updates">9. Updates to This Privacy Policy</a></li>
+                <li><a href="#contact">10. Contact Information</a></li>
+            </ol>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content-card">
+            <!-- Section 1 -->
+            <section id="introduction" class="section">
+                <h2>1. Introduction</h2>
+                <p>Welcome to <strong>ToolNest</strong> (toolnest.site). ToolNest is a student-focused platform that provides free online tools including calculators, converters, planners, and productivity resources to help students with their academic and everyday tasks.</p>
+                <p>This Privacy Policy explains how we collect, use, and protect information when you visit and use our website. We are committed to respecting your privacy and handling any data we collect with care and transparency.</p>
+                <div class="highlight-box">
+                    <p><strong>Important:</strong> By using ToolNest, you acknowledge that you have read and understood this Privacy Policy.</p>
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section id="information-collect" class="section">
+                <h2>2. Information We Collect</h2>
+                
+                <h3>2.1 Personal Information</h3>
+                <p>ToolNest does not require users to create accounts or provide personal information to use our tools. However, we may collect personal information in the following limited circumstances:</p>
+                <ul>
+                    <li><strong>Contact Forms or Email:</strong> If you contact us through a form or email, we may collect your name, email address, and any other information you voluntarily provide.</li>
+                </ul>
+
+                <h3>2.2 Non-Personal Information</h3>
+                <p>We automatically collect certain non-personal information when you visit our website, including:</p>
+                <ul>
+                    <li><strong>IP Address:</strong> Your device's Internet Protocol address</li>
+                    <li><strong>Browser Type and Version:</strong> Information about the web browser you use</li>
+                    <li><strong>Device Information:</strong> Type of device, operating system, and screen resolution</li>
+                    <li><strong>Pages Visited:</strong> Which pages and tools you access on our site</li>
+                    <li><strong>Referral Source:</strong> The website or link that directed you to ToolNest</li>
+                    <li><strong>Date and Time:</strong> When you accessed our website</li>
+                </ul>
+
+                <h3>2.3 Cookies and Tracking Technologies</h3>
+                <p>We use cookies and similar tracking technologies to enhance your experience and analyze website usage. See the <a href="#cookies">Cookies</a> section below for more details.</p>
+            </section>
+
+            <!-- Section 3 -->
+            <section id="how-use" class="section">
+                <h2>3. How We Use Your Information</h2>
+                <p>We use the information we collect for the following purposes:</p>
+                <ul>
+                    <li><strong>To Provide and Improve Our Services:</strong> Ensuring our tools work properly and improving their functionality based on usage patterns</li>
+                    <li><strong>To Enhance User Experience:</strong> Personalizing and optimizing the website layout and features</li>
+                    <li><strong>To Respond to Inquiries:</strong> Answering questions or requests submitted through contact forms or email</li>
+                    <li><strong>To Analyze Website Traffic:</strong> Understanding how visitors use ToolNest to make informed decisions about content and features</li>
+                    <li><strong>To Maintain Security:</strong> Protecting the website from abuse, fraud, and security threats</li>
+                    <li><strong>To Display Relevant Content:</strong> Showing appropriate advertisements or recommendations (if applicable)</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>We do not sell, rent, or share your personal information with third parties for their marketing purposes.</strong></p>
+                </div>
+            </section>
+
+            <!-- Section 4 -->
+            <section id="cookies" class="section">
+                <h2>4. Cookies</h2>
+                
+                <h3>4.1 What Are Cookies?</h3>
+                <p>Cookies are small text files stored on your device by your web browser when you visit a website. They help websites remember your preferences and understand how you interact with the site.</p>
+
+                <h3>4.2 How We Use Cookies</h3>
+                <p>ToolNest uses cookies for:</p>
+                <ul>
+                    <li><strong>Essential Functionality:</strong> Ensuring the website operates correctly</li>
+                    <li><strong>Analytics:</strong> Collecting aggregated data about website traffic and user behavior through services like Google Analytics</li>
+                    <li><strong>Performance Optimization:</strong> Improving loading times and site performance</li>
+                    <li><strong>User Preferences:</strong> Remembering your settings and preferences (if applicable)</li>
+                </ul>
+
+                <h3>4.3 Managing Cookies</h3>
+                <p>You can control or disable cookies through your browser settings. Please note that disabling cookies may affect your ability to use certain features of our website. Most browsers provide instructions on how to manage cookies in their help sections.</p>
+            </section>
+
+            <!-- Section 5 -->
+            <section id="third-party" class="section">
+                <h2>5. Third-Party Services</h2>
+                <p>ToolNest uses third-party services to provide and improve our website functionality. These services may collect and process information according to their own privacy policies.</p>
+
+                <h3>5.1 Google Analytics</h3>
+                <p>We use Google Analytics to analyze website traffic and understand user behavior. Google Analytics collects information such as how often users visit the site, which pages they visit, and what other sites they used prior to visiting ToolNest. This information is aggregated and anonymous.</p>
+                <p>You can learn more about Google Analytics' privacy practices at: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy</a></p>
+
+                <h3>5.2 Google AdSense</h3>
+                <p>ToolNest may display advertisements through Google AdSense or similar advertising networks. These services may use cookies and similar technologies to show ads based on your browsing activity. Third-party vendors may use cookies to serve ads based on your prior visits to our website or other websites.</p>
+                <p>You can learn more about Google AdSense privacy practices at: <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">https://policies.google.com/technologies/ads</a></p>
+
+                <h3>5.3 Other Third-Party Services</h3>
+                <p>We may integrate other third-party tools or services to enhance website functionality. Each third-party service operates under its own privacy policy, and we encourage you to review those policies.</p>
+                <div class="highlight-box">
+                    <p><strong>Important:</strong> ToolNest is not responsible for the privacy practices of third-party services. We recommend reviewing their privacy policies before interacting with them.</p>
+                </div>
+            </section>
+
+            <!-- Section 6 -->
+            <section id="data-security" class="section">
+                <h2>6. Data Security</h2>
+                <p>We take reasonable measures to protect the information we collect from unauthorized access, disclosure, alteration, or destruction. These measures include technical and organizational safeguards appropriate to the nature of the data.</p>
+                <p>However, please be aware that no method of transmission over the internet or electronic storage is completely secure. While we strive to protect your information, we cannot guarantee absolute security.</p>
+            </section>
+
+            <!-- Section 7 -->
+            <section id="children" class="section">
+                <h2>7. Children's Information</h2>
+                <p>ToolNest is designed to be helpful for students, including minors. However, we do not knowingly collect personal information from children under the age of 13 without parental consent.</p>
+                <p>If you are a parent or guardian and believe that your child has provided personal information to us, please contact us at the email address below. We will take steps to remove such information from our systems promptly.</p>
+                <p>We encourage parents and guardians to monitor their children's internet usage and to help enforce this Privacy Policy.</p>
+            </section>
+
+            <!-- Section 8 -->
+            <section id="user-consent" class="section">
+                <h2>8. User Consent</h2>
+                <p>By accessing and using ToolNest (toolnest.site), you consent to the collection and use of information as described in this Privacy Policy.</p>
+                <p>If you do not agree with this Privacy Policy, please discontinue use of our website.</p>
+            </section>
+
+            <!-- Section 9 -->
+            <section id="updates" class="section">
+                <h2>9. Updates to This Privacy Policy</h2>
+                <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make changes, we will update the "Last Updated" date at the top of this page.</p>
+                <p>We encourage you to review this Privacy Policy periodically to stay informed about how we protect your information. Your continued use of ToolNest after any changes indicates your acceptance of the updated Privacy Policy.</p>
+            </section>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-card" id="contact">
+            <h2>10. Contact Information</h2>
+            <p>If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your information, please feel free to contact us:</p>
+            <div class="contact-info-box">
+                <p><strong>Email:</strong> <a href="mailto:contact@toolnest.site">contact@toolnest.site</a></p>
+                <p><strong>Website:</strong> <a href="https://toolnest.site" target="_blank" rel="noopener noreferrer">https://toolnest.site</a></p>
+            </div>
+            <p>We will do our best to respond to your inquiries in a timely manner.</p>
+        </div>
+    </div>
+
+    <!-- Footer from shared.css -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="logo">ToolNest</a>
+                    <p>Free online tools for students and professionals.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Tools</h4>
+                        <a href="/word-counter/">Word Counter</a>
+                        <a href="/gpa-calculator/">GPA Calculator</a>
+                        <a href="/study-timer/">Study Timer</a>
+                        <a href="#">More coming soon...</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="/blog/">Blog</a>
+                        <a href="/about-toolnest/">About</a>
+                        <a href="/contact-toolnest/">Contact</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="/privacy-policy/">Privacy Policy</a>
+                        <a href="/terms-of-service/">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 ToolNest. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="Back to top">↑</button>
+
+    <!-- JavaScript -->
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top when button is clicked
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80; // Account for sticky header
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

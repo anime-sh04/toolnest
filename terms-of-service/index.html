@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terms and Conditions for ToolNest - Read our terms of service for using our free student-focused online tools.">
+    <title>Terms and Conditions - ToolNest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/shared.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .last-updated {
+            text-align: center;
+            color: #999;
+            font-size: 0.875rem;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        /* Table of Contents Card */
+        .toc-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .toc-card h2 {
+            font-size: 1.25rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .toc {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 10px;
+        }
+
+        .toc a {
+            color: #4a90e2;
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+
+        .toc a:hover {
+            color: #357abd;
+        }
+
+        /* Content Card */
+        .content-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .section {
+            margin-bottom: 40px;
+            scroll-margin-top: 80px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            font-weight: 600;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        h3 {
+            font-size: 1.125rem;
+            color: #1a1a1a;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .content-card a {
+            color: #4a90e2;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .content-card a:hover {
+            color: #357abd;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: #f0f7ff;
+            border-left: 4px solid #4a90e2;
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: #1a1a1a;
+        }
+
+        /* Contact Card */
+        .contact-card {
+            background: #2c3e50;
+            color: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .contact-card h2 {
+            color: white;
+            border-bottom-color: rgba(255,255,255,0.2);
+        }
+
+        .contact-card p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .contact-card strong {
+            color: white;
+        }
+
+        .contact-card a {
+            color: #4a90e2;
+        }
+
+        .contact-card a:hover {
+            color: #6db3ff;
+        }
+
+        .contact-info-box {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #4a90e2;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+            border: none;
+            font-size: 1.5rem;
+            line-height: 1;
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #357abd;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 0;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .content-card,
+            .toc-card,
+            .contact-card {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            h3 {
+                font-size: 1.05rem;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header from shared.css -->
+    <header class="site-header">
+        <a href="/" class="logo">ToolNest</a>
+        <nav>
+            <a href="/about-toolnest/">About</a>
+            <a href="/contact-toolnest/">Contact</a>
+            <a href="/blog/" class="active">Blog</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="header">
+            <h1>Terms and Conditions</h1>
+            <p>ToolNest - Student-Focused Online Tools</p>
+        </div>
+
+        <div class="last-updated">Last Updated: January 19, 2026</div>
+
+        <!-- Table of Contents -->
+        <div class="toc-card">
+            <h2>Table of Contents</h2>
+            <ol class="toc">
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#definitions">2. Definitions</a></li>
+                <li><a href="#use-website">3. Use of the Website</a></li>
+                <li><a href="#intellectual-property">4. Intellectual Property Rights</a></li>
+                <li><a href="#accuracy">5. Accuracy of Information</a></li>
+                <li><a href="#user-responsibilities">6. User Responsibilities</a></li>
+                <li><a href="#third-party">7. Third-Party Services & Links</a></li>
+                <li><a href="#limitation-liability">8. Limitation of Liability</a></li>
+                <li><a href="#disclaimer">9. Disclaimer</a></li>
+                <li><a href="#termination">10. Termination</a></li>
+                <li><a href="#governing-law">11. Governing Law</a></li>
+                <li><a href="#changes">12. Changes to These Terms</a></li>
+                <li><a href="#contact">13. Contact Information</a></li>
+            </ol>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content-card">
+            <!-- Section 1 -->
+            <section id="introduction" class="section">
+                <h2>1. Introduction</h2>
+                <p>Welcome to <strong>ToolNest</strong> (toolnest.site). ToolNest provides free online tools designed to help students with calculators, planners, converters, and productivity utilities for academic and everyday use.</p>
+                <p>These Terms and Conditions govern your access to and use of our website. By accessing, browsing, or using ToolNest, you acknowledge that you have read, understood, and agree to be bound by these Terms.</p>
+                <div class="highlight-box">
+                    <p><strong>Important:</strong> If you do not agree with any part of these Terms and Conditions, you should not use this website.</p>
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section id="definitions" class="section">
+                <h2>2. Definitions</h2>
+                <p>For the purposes of these Terms and Conditions:</p>
+                <ul>
+                    <li><strong>"Website"</strong> refers to ToolNest, accessible at toolnest.site and all its subdomains and pages.</li>
+                    <li><strong>"We", "Us", "Our"</strong> refers to ToolNest and its operators.</li>
+                    <li><strong>"User", "You", "Your"</strong> refers to any individual or entity accessing or using the Website.</li>
+                    <li><strong>"Services"</strong> refers to all tools, calculators, planners, converters, and other utilities provided on the Website.</li>
+                    <li><strong>"Content"</strong> refers to all text, images, code, design, graphics, and other materials available on the Website.</li>
+                </ul>
+            </section>
+
+            <!-- Section 3 -->
+            <section id="use-website" class="section">
+                <h2>3. Use of the Website</h2>
+                <p>ToolNest is provided for educational, informational, and utility purposes only. The Services are made available to help students and general users perform calculations, conversions, planning, and other productivity tasks.</p>
+                
+                <h3>3.1 Acceptable Use</h3>
+                <p>You agree to use the Website and Services in a lawful and responsible manner. You may use our tools for personal, educational, or informational purposes.</p>
+
+                <h3>3.2 Prohibited Activities</h3>
+                <p>You agree NOT to:</p>
+                <ul>
+                    <li>Use the Website for any illegal, harmful, or fraudulent purpose</li>
+                    <li>Attempt to disrupt, damage, or interfere with the Website's functionality</li>
+                    <li>Use automated systems (bots, scrapers) to access the Website without permission</li>
+                    <li>Attempt to gain unauthorized access to any part of the Website or its systems</li>
+                    <li>Upload or transmit viruses, malware, or any harmful code</li>
+                    <li>Violate any applicable laws or regulations while using the Website</li>
+                </ul>
+            </section>
+
+            <!-- Section 4 -->
+            <section id="intellectual-property" class="section">
+                <h2>4. Intellectual Property Rights</h2>
+                <p>Unless otherwise stated, ToolNest and its operators own all intellectual property rights to the Website, including but not limited to:</p>
+                <ul>
+                    <li>Website design, layout, and structure</li>
+                    <li>Tool functionality and code</li>
+                    <li>ToolNest name, logo, and branding</li>
+                    <li>Text content, graphics, and images created by ToolNest</li>
+                </ul>
+
+                <h3>4.1 Use Restrictions</h3>
+                <p>You may not:</p>
+                <ul>
+                    <li>Copy, reproduce, or redistribute any Content without our written permission</li>
+                    <li>Modify, reverse-engineer, or create derivative works based on our tools or code</li>
+                    <li>Use the ToolNest name, logo, or branding without authorization</li>
+                    <li>Claim ownership of any part of the Website or its Content</li>
+                </ul>
+
+                <h3>4.2 Fair Use</h3>
+                <p>You may use the tools for their intended purpose and share results generated by the tools (such as GPA calculations or word counts) for personal or educational use.</p>
+            </section>
+
+            <!-- Section 5 -->
+            <section id="accuracy" class="section">
+                <h2>5. Accuracy of Information</h2>
+                <p>ToolNest provides its tools and Services on an <strong>"as-is"</strong> basis. While we strive to ensure accuracy and reliability, we make no guarantees regarding:</p>
+                <ul>
+                    <li>The accuracy, completeness, or reliability of results generated by our tools</li>
+                    <li>The suitability of our tools for any specific purpose</li>
+                    <li>The absence of errors, bugs, or technical issues</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong>Important:</strong> Results provided by ToolNest's calculators, converters, and other tools should not be considered official, professional, legal, or medical advice. Always verify important calculations and consult appropriate professionals when necessary.</p>
+                </div>
+
+                <p>You are responsible for verifying the accuracy of any results before making decisions based on them.</p>
+            </section>
+
+            <!-- Section 6 -->
+            <section id="user-responsibilities" class="section">
+                <h2>6. User Responsibilities</h2>
+                <p>As a user of ToolNest, you acknowledge and agree that:</p>
+
+                <h3>6.1 Personal Responsibility</h3>
+                <ul>
+                    <li>You are solely responsible for how you use the Website and its Services</li>
+                    <li>You will verify important information and calculations independently</li>
+                    <li>You will not rely solely on our tools for critical decisions without verification</li>
+                    <li>You understand that our tools are aids, not replacements for professional judgment</li>
+                </ul>
+
+                <h3>6.2 Prohibited Conduct</h3>
+                <p>You agree not to engage in any illegal, harmful, abusive, or unethical activities while using the Website, including but not limited to:</p>
+                <ul>
+                    <li>Harassing, threatening, or harming others</li>
+                    <li>Violating anyone's intellectual property rights</li>
+                    <li>Distributing harmful or malicious content</li>
+                    <li>Impersonating others or misrepresenting your identity</li>
+                </ul>
+            </section>
+
+            <!-- Section 7 -->
+            <section id="third-party" class="section">
+                <h2>7. Third-Party Services & Links</h2>
+                <p>ToolNest may use third-party services to provide functionality, analytics, or advertising. These services may include but are not limited to:</p>
+                <ul>
+                    <li>Google Analytics (for traffic analysis)</li>
+                    <li>Google AdSense (for advertisements)</li>
+                    <li>Other analytics or utility services</li>
+                </ul>
+
+                <h3>7.1 External Links</h3>
+                <p>The Website may contain links to external websites or resources. These links are provided for convenience only.</p>
+                <ul>
+                    <li>We do not control or endorse third-party websites</li>
+                    <li>We are not responsible for the content, privacy practices, or terms of third-party sites</li>
+                    <li>Accessing third-party links is at your own risk</li>
+                </ul>
+
+                <h3>7.2 Third-Party Terms</h3>
+                <p>Third-party services have their own terms of service and privacy policies. We encourage you to review these policies when using such services.</p>
+            </section>
+
+            <!-- Section 8 -->
+            <section id="limitation-liability" class="section">
+                <h2>8. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law, ToolNest and its operators shall not be liable for any direct, indirect, incidental, consequential, or special damages arising from:</p>
+                <ul>
+                    <li>Your use or inability to use the Website or Services</li>
+                    <li>Errors, inaccuracies, or omissions in the tools or Content</li>
+                    <li>Any decisions made based on information or results from the Website</li>
+                    <li>Interruption or termination of Services</li>
+                    <li>Security breaches or unauthorized access to your data</li>
+                    <li>Third-party content, services, or websites</li>
+                </ul>
+
+                <p>This includes but is not limited to loss of data, loss of profits, academic consequences, or any other damages, even if we have been advised of the possibility of such damages.</p>
+            </section>
+
+            <!-- Section 9 -->
+            <section id="disclaimer" class="section">
+                <h2>9. Disclaimer</h2>
+                <p>ToolNest is provided on an <strong>"as available"</strong> and <strong>"as-is"</strong> basis without any warranties of any kind, either express or implied.</p>
+
+                <h3>9.1 No Warranty</h3>
+                <p>We make no warranties or representations regarding:</p>
+                <ul>
+                    <li>The accuracy, reliability, or completeness of the Website or Services</li>
+                    <li>Uninterrupted, error-free, or secure operation of the Website</li>
+                    <li>The suitability of our tools for your specific needs</li>
+                    <li>The absence of viruses or other harmful components</li>
+                </ul>
+
+                <h3>9.2 Use at Your Own Risk</h3>
+                <p>You acknowledge that your use of ToolNest is entirely at your own risk. We do not guarantee that the Website will meet your requirements or expectations.</p>
+            </section>
+
+            <!-- Section 10 -->
+            <section id="termination" class="section">
+                <h2>10. Termination</h2>
+                <p>We reserve the right to restrict, suspend, or terminate your access to the Website at any time, with or without notice, for any reason, including but not limited to:</p>
+                <ul>
+                    <li>Violation of these Terms and Conditions</li>
+                    <li>Illegal, abusive, or harmful conduct</li>
+                    <li>Attempts to disrupt or damage the Website</li>
+                    <li>Any other behavior we deem inappropriate</li>
+                </ul>
+
+                <p>Upon termination, you must immediately cease all use of the Website. Provisions of these Terms that by their nature should survive termination shall remain in effect.</p>
+            </section>
+
+            <!-- Section 11 -->
+            <section id="governing-law" class="section">
+                <h2>11. Governing Law</h2>
+                <p>These Terms and Conditions are governed by and construed in accordance with applicable laws. Any disputes arising from these Terms or your use of the Website shall be subject to the jurisdiction of the appropriate courts.</p>
+                <p>If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall continue in full force and effect.</p>
+            </section>
+
+            <!-- Section 12 -->
+            <section id="changes" class="section">
+                <h2>12. Changes to These Terms</h2>
+                <p>We reserve the right to modify, update, or replace these Terms and Conditions at any time without prior notice. Changes will be effective immediately upon posting on this page.</p>
+                <p>We will update the "Last Updated" date at the top of this page whenever changes are made. We encourage you to review these Terms periodically to stay informed of any updates.</p>
+                <div class="highlight-box">
+                    <p><strong>Your continued use of ToolNest after any changes indicates your acceptance of the updated Terms and Conditions.</strong></p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-card" id="contact">
+            <h2>13. Contact Information</h2>
+            <p>If you have any questions, concerns, or feedback regarding these Terms and Conditions or your use of ToolNest, please feel free to contact us:</p>
+            <div class="contact-info-box">
+                <p><strong>Email:</strong> <a href="mailto:contact@toolnest.site">contact@toolnest.site</a></p>
+                <p><strong>Website:</strong> <a href="https://toolnest.site" target="_blank" rel="noopener noreferrer">https://toolnest.site</a></p>
+            </div>
+            <p>We will do our best to respond to your inquiries in a timely manner.</p>
+        </div>
+    </div>
+
+    <!-- Footer from shared.css -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="/" class="logo">ToolNest</a>
+                    <p>Free online tools for students and professionals.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Tools</h4>
+                        <a href="/word-counter/">Word Counter</a>
+                        <a href="/gpa-calculator/">GPA Calculator</a>
+                        <a href="/study-timer/">Study Timer</a>
+                        <a href="#">More coming soon...</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="/blog/">Blog</a>
+                        <a href="/about-toolnest/">About</a>
+                        <a href="/contact-toolnest/">Contact</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <a href="/privacy.html">Privacy Policy</a>
+                        <a href="/terms-of-service/">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 ToolNest. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="Back to top">↑</button>
+
+    <!-- JavaScript -->
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top when button is clicked
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80; // Account for sticky header
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
