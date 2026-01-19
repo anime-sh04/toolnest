@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Tools Blog - Study Tips, Academic Success & Free Resources | ToolNest</title>
+    <meta name="description" content="Discover study tips, academic success strategies, and guides to free online tools for students. Learn how to improve grades, manage time, and succeed in college.">
+    <link rel="canonical" href="https://toolnest.site/blog/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/shared.css">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #e9ecef;
+            --text-primary: #1a1a1a;
+            --text-secondary: #495057;
+            --text-muted: #868e96;
+            --accent-study: #28a745;
+            --accent-break: #dc3545;
+            --border: #dee2e6;
+            --shadow: rgba(40, 167, 69, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(40, 167, 69, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(220, 53, 69, 0.05) 0%, transparent 50%);
+            animation: gradientMove 20s ease infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(10%, 10%); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 60px 20px;
+            flex: 1;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .blog-header h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .blog-header p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            animation: fadeIn 0.8s ease 0.2s backwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .blog-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 35px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-study), var(--accent-break));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow);
+            border-color: var(--accent-study);
+        }
+
+        .blog-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .blog-category {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-study);
+            margin-bottom: 15px;
+        }
+
+        .blog-card h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(20px, 2.5vw, 24px);
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        .blog-excerpt {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: var(--text-muted);
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .blog-date {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .blog-date::before {
+            content: '📅';
+            font-size: 14px;
+        }
+
+        .read-time {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .read-time::before {
+            content: '⏱️';
+            font-size: 14px;
+        }
+
+        .no-posts {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-muted);
+        }
+
+        .no-posts h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+        }
+
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 40px 15px;
+            }
+
+            .blog-header {
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-card {
+                padding: 25px;
+                border-radius: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a href="/" class="logo">ToolNest</a>
+        <nav>
+            <a href="/about-toolnest/">About</a>
+            <a href="/contact-toolnest/">Contact</a>
+            <a href="/blog/" class="active">Blog</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="blog-header">
+            <h1>Student Success Blog</h1>
+            <p>Study tips, academic strategies, and guides to help you succeed in school. Learn how to use free tools, improve your grades, and manage your time effectively.</p>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Blog Post 1 -->
+            <a href="/blog/best-free-online-tools-for-students/" class="blog-card">
+                <span class="blog-category">Study Tools</span>
+                <h2>Best Free Online Tools for Students (Assignments, Grades & Study)</h2>
+                <p class="blog-excerpt">Discover simple, browser-based tools that help you count words, calculate your GPA, and stay focused during study sessions—no downloads or sign-ups required.</p>
+                <div class="blog-meta">
+                    <span class="blog-date">Jan 19, 2025</span>
+                    <span class="read-time">5 min read</span>
+                </div>
+            </a>
+
+            <!-- Blog Post 2 - Example (add your future blog posts here) -->
+            <!-- 
+            <a href="/blog/how-to-calculate-gpa/" class="blog-card">
+                <span class="blog-category">Academic Success</span>
+                <h2>How to Calculate Your GPA: Complete Guide for Students</h2>
+                <p class="blog-excerpt">Learn everything you need to know about GPA calculation, including weighted vs unweighted GPAs, credit hours, and how to improve your academic standing.</p>
+                <div class="blog-meta">
+                    <span class="blog-date">Jan 15, 2025</span>
+                    <span class="read-time">7 min read</span>
+                </div>
+            </a>
+            -->
+
+            <!-- Blog Post 3 - Example -->
+            <!-- 
+            <a href="/blog/study-techniques-that-work/" class="blog-card">
+                <span class="blog-category">Study Tips</span>
+                <h2>5 Science-Backed Study Techniques That Actually Work</h2>
+                <p class="blog-excerpt">Stop wasting time with ineffective study methods. These proven techniques help you learn faster, remember more, and perform better on exams.</p>
+                <div class="blog-meta">
+                    <span class="blog-date">Jan 10, 2025</span>
+                    <span class="read-time">8 min read</span>
+                </div>
+            </a>
+            -->
+
+            <!-- Blog Post 4 - Example -->
+            <!-- 
+            <a href="/blog/time-management-for-students/" class="blog-card">
+                <span class="blog-category">Productivity</span>
+                <h2>Time Management Tips Every College Student Needs</h2>
+                <p class="blog-excerpt">Balance classes, assignments, social life, and sleep with these practical time management strategies designed specifically for busy students.</p>
+                <div class="blog-meta">
+                    <span class="blog-date">Jan 5, 2025</span>
+                    <span class="read-time">6 min read</span>
+                </div>
+            </a>
+            -->
+
+            <!-- Blog Post 5 - Example -->
+            <!-- 
+            <a href="/blog/essay-writing-checklist/" class="blog-card">
+                <span class="blog-category">Writing</span>
+                <h2>The Ultimate Essay Writing Checklist (Before You Submit)</h2>
+                <p class="blog-excerpt">Never lose points on avoidable mistakes again. This comprehensive checklist ensures your essays meet every requirement before submission.</p>
+                <div class="blog-meta">
+                    <span class="blog-date">Dec 28, 2024</span>
+                    <span class="read-time">4 min read</span>
+                </div>
+            </a>
+            -->
+
+            <!-- Blog Post 6 - Example -->
+            <!-- 
+            <a href="/blog/scholarship-application-tips/" class="blog-card">
+                <span class="blog-category">Financial Aid</span>
+                <h2>How to Write Scholarship Essays That Win Money</h2>
+                <p class="blog-excerpt">Stand out from thousands of applicants with scholarship essays that tell your story effectively and demonstrate why you deserve funding.</p>
+                <div class="blog-meta">
+                    <span class="blog-date">Dec 20, 2024</span>
+                    <span class="read-time">9 min read</span>
+                </div>
+            </a>
+            -->
+        </div>
+    </div>
+
+    <footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="/" class="logo">ToolNest</a>
+                <p>Free online tools for students and professionals.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Tools</h4>
+                    <a href="/word-counter/">Word Counter</a>
+                    <a href="/gpa-calculator/">GPA Calculator</a>
+                    <a href="/study-timer/">Study Timer</a>
+                    <a href="#">More coming soon...</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <a href="/about-toolnest/">About</a>
+                    <a href="/contact-toolnest/">Contact</a>
+                    <a href="/blog/">Blog</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 ToolNest. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

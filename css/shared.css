@@ -11,6 +11,7 @@
     --muted: #718096;
     --card: #FFFFFF;
     --background: #F7FAFC;
+    --accent-study: #28a745;
     --border: #E2E8F0;
     --accent: #4A5568;
 }
@@ -74,6 +75,23 @@ body {
     transition: color 0.2s ease;
 }
 
+a {
+            color: var(--accent-study);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid transparent;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #1e7e34;
+            border-bottom-color: var(--accent-study);
+        }
+
+.site-header nav a.active {
+            color: var(--accent-study);
+            font-weight: 600;
+        }
 .site-header nav a:hover {
     color: var(--primary);
 }
