@@ -135,6 +135,17 @@ body {
     color: #C53030;
 }
 
+.new-badge {
+    background: #ff4757;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 600;
+    padding: 3px 6px;
+    border-radius: 6px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
 /* Info Section */
 .info-section {
     padding: 40px 0 60px;
